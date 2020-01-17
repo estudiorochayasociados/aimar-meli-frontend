@@ -38,12 +38,12 @@ export default {
       element.classList.add("d-block");
     },
     updateProducts : async function() {
-      document.getElementById('boton').classList.add('is-loading');
+      await document.getElementById('boton').classList.add('is-loading');
       await axios.get(process.env.apiUrl + "/product/update-products-with-web", this.$cookies.get("header-token"));
       const products = await axios.get(process.env.apiUrl + "/product", this.$cookies.get("header-token"));
       this.products = products.data;
-      document.getElementById('boton').classList.remove('is-loading');
-      document.getElementById('boton').classList.replace('is-loading','');      
+      await document.getElementById('boton').classList.remove('is-loading');
+      await document.getElementById('boton').classList.replace('is-loading','');      
     }
   }
 };
